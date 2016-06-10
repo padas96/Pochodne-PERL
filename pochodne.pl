@@ -13,7 +13,7 @@ foreach $arg (@ARGV) #Sprawdzanie ilosci podanych argumentow
 	$m++;
 }
 
-if ($m!=@ARGV[0])
+if ($m!=@ARGV[0]) #Sprawdzanie czy ilosc argumentow sie zgadza
 {
 printf "Podales za malo argumentow!\nPierwszy argument to stopien wielomianu,\nkolejne argumenty to kolejne wspolczynniki,\nliczba wspolczynnikow powinna odpowiadac stopniowi wielomianu.\n\n";
 	exit;
@@ -26,7 +26,7 @@ for ($poz_wiel; $poz_wiel>0; $poz_wiel--)
 	$i++;
 }
 
-printf "f (x)= ";
+printf "Funkcja wejsciowa:\nf (x)= ";
 foreach $b (@tab2) #Wyswietlanie funkcji wejsciowej
 {
 	if ($k>1 && $b>0)
@@ -34,10 +34,13 @@ foreach $b (@tab2) #Wyswietlanie funkcji wejsciowej
 	printf '+';
 	}
 
-	$c=$ARGV[0]-$k+1;
+	$c=$ARGV[0]-$k+1; #Obliczanie poteg kolejny wspolczynnikow
 	if ($b!=0)
 	{
+	if ($b!=1)
+	{
 	printf "$b";	
+	}
 	if ($c>=2)
 	{
 		printf "x[";
@@ -51,11 +54,9 @@ foreach $b (@tab2) #Wyswietlanie funkcji wejsciowej
 	}
 	$k++;
 }
-
-
-printf "+C\n";
+printf "+C\t\t C - Wyraz wolny\n\n";
 $k=1;
-printf "f'(x)= ";
+printf "Pochodna funkcji:\nf'(x)= ";
 foreach $a (@tab) #Wyswietlanie pochodnej
 {
 	if ($k>1 && $a>0)
@@ -80,5 +81,4 @@ foreach $a (@tab) #Wyswietlanie pochodnej
 	}	
 	$k++;
 }
-
 	printf "\n\n";
